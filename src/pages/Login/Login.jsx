@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Register.css'
+import './Login.css'
 import {StepPhoneEmail} from "../Steps/StepPhoneEmail";
 import {StepOtp} from "../Steps/StepOtp";
 import {StepName} from "../Steps/StepName";
@@ -9,12 +9,9 @@ import {StepUsername} from "../Steps/StepUsername";
 const steps = {
     1: StepPhoneEmail,
     2: StepOtp,
-    3: StepName,
-    4: StepAvatar,
-    5: StepUsername
 }
 
-export const Register = () => {
+export const Login = () => {
     const [step, setStep] = useState(1)
     const Step = steps[step]
 
