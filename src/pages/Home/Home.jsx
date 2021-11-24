@@ -13,7 +13,6 @@ export const Home = () => {
     }
 const history = useHistory()
     function startRegister() {
-        console.log(history)
         history.push('/register')
     }
 
