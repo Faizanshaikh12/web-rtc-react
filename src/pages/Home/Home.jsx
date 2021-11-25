@@ -13,7 +13,7 @@ export const Home = () => {
     }
 const history = useHistory()
     function startRegister() {
-        history.push('/register')
+        history.push('/authenticate')
     }
 
     return (
@@ -26,11 +26,10 @@ const history = useHistory()
                     distribution.
                 </p>
                 <div>
-                    <Button onClick={startRegister} text='Get your username'/>
+                    <Button onClick={startRegister} text="Let's Go"/>
                 </div>
                 <div className='loginWrapper'>
                     <span className='hasInvite'>Have an invite text?</span>
-                    <Link style={loginStyle} to='/login'>Sign in</Link>
                 </div>
             </Card>
         </div>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './Register.css'
-import {StepPhoneEmail} from "../Steps/StepPhoneEmail";
+import {StepPhoneEmail} from "../Steps/StepPhoneEmail/StepPhoneEmail";
 import {StepOtp} from "../Steps/StepOtp";
 import {StepName} from "../Steps/StepName";
 import {StepAvatar} from "../Steps/StepAvatar";
