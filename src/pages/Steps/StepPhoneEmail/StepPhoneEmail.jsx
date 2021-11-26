@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Phone} from "./Phone/Phone";
 import {Email} from "./Email/Email";
-import './StepPhoneEmail.css'
+import '../Steps.css'
 
 const phoneEmailMap = {
     phone: Phone,
@@ -11,10 +11,6 @@ const phoneEmailMap = {
 export const StepPhoneEmail = ({onNext}) => {
     const [type, setType] = useState('phone')
     const Component = phoneEmailMap[type]
-
-    function onNext() {
-
-    }
 
     return (
         <div>

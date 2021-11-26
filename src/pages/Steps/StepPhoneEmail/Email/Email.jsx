@@ -10,7 +10,7 @@ const [email, setEmail] = useState('')
             <TextInput value={email} onChange={(e) => setEmail(e.target.value)}/>
             <div>
                 <div className='actionButtonWrap'>
-                    <Button text="Next"/>
+                    <Button text="Next" onClick={onNext}/>
                 </div>
                 <p className='bottomPre'>
                     It is a long established fact that a reader will be distracted by the readable content of a page
