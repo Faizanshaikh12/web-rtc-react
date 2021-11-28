@@ -5,11 +5,12 @@ import {Navigation} from "./components/shared/Navigation/Navigation";
 import {Authenticate} from "./pages/Authenticate/Authenticate";
 import {Activate} from "./pages/Activate/Activate";
 import {Rooms} from "./pages/Rooms/Rooms";
+import {useSelector} from "react-redux";
 
-const isAuth = false;
-const user = {
-    activated: false
-}
+// const isAuth = false;
+// const user = {
+//     activated: false
+// }
 
 function App() {
     return <BrowserRouter>
@@ -39,7 +40,7 @@ function App() {
 }
 
 const GeustRoute = ({children, ...rest}) => {
-
+    const {isAuth} = useSelector((state) => state.auth)
     return (
         <Route {...rest}
                render={({location}) => {
@@ -57,6 +58,7 @@ const GeustRoute = ({children, ...rest}) => {
 }
 
 const SamiProtectedRoute = ({children, ...rest}) => {
+    const {isAuth, user} = useSelector((state) => state.auth)
     return (
         <Route {...rest}
                render={({location}) => {
@@ -77,6 +79,7 @@ const SamiProtectedRoute = ({children, ...rest}) => {
 }
 
 const ProtectedRoute = ({children, ...rest}) => {
+    const {isAuth, user} = useSelector((state) => state.auth)
     return (
         <Route {...rest}
                render={({location}) => {
