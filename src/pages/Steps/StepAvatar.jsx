@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setAvatar} from "../../store/activateSlice";
 import './Steps.css'
 import {activate} from "../../http";
+import {setAuth} from "../../store/authSlice";
 
 export const StepAvatar = ({onNext}) => {
     const dispatch = useDispatch();
@@ -26,6 +27,9 @@ export const StepAvatar = ({onNext}) => {
     async function onSubmit() {
         try {
             const {data} = await activate({name, avatar});
+            if(data.auth){
+                dispatch(setAuth(data));
+            }
             console.log(data);
         } catch (e) {
             console.log(e);
