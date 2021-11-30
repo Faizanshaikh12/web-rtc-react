@@ -7,11 +7,13 @@ import {setAvatar} from "../../store/activateSlice";
 import './Steps.css'
 import {activate} from "../../http";
 import {setAuth} from "../../store/authSlice";
+import {Loader} from "../../components/shared/Loader/Loader";
 
 export const StepAvatar = ({onNext}) => {
     const dispatch = useDispatch();
     const {name, avatar} = useSelector((state) => state.activate)
     const [image, setImage] = useState('/images/monkey-avatar.png');
+    const [loading, setLoading] = useState(false);
 
     function uploadImage(e) {
         const file = e.target.files[0];
@@ -25,18 +27,21 @@ export const StepAvatar = ({onNext}) => {
     }
 
     async function onSubmit() {
+        setLoading(true);
         try {
             const {data} = await activate({name, avatar});
-            if(data.auth){
+            if (data.auth) {
                 dispatch(setAuth(data));
             }
             console.log(data);
         } catch (e) {
             console.log(e);
+        } finally {
+            setLoading(false);
         }
     }
 
-
+    if (loading) return <Loader message="Activation progress"/>
     return (
         <div>
             <div className='cardWrapper'>

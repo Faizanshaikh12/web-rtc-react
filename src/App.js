@@ -6,6 +6,8 @@ import {Authenticate} from "./pages/Authenticate/Authenticate";
 import {Activate} from "./pages/Activate/Activate";
 import {Rooms} from "./pages/Rooms/Rooms";
 import {useSelector} from "react-redux";
+import {useLoadingWithRefresh} from "./hooks/useLoadingWithRefresh";
+import {Loader} from "./components/shared/Loader/Loader";
 
 // const isAuth = false;
 // const user = {
@@ -13,30 +15,27 @@ import {useSelector} from "react-redux";
 // }
 
 function App() {
-    return <BrowserRouter>
-        <Navigation/>
-        <Switch>
-            <GeustRoute path="/" exact>
-                <Home/>
-            </GeustRoute>
-            <GeustRoute path="/authenticate">
-                <Authenticate/>
-            </GeustRoute>
-            <SamiProtectedRoute path="/activate">
-                <Activate/>
-            </SamiProtectedRoute>
-            <ProtectedRoute path="/rooms">
-                <Rooms/>
-            </ProtectedRoute>
+    const {loading} = useLoadingWithRefresh();
 
-            {/*<Route path="/register">*/}
-            {/*    <Register/>*/}
-            {/*</Route>*/}
-            {/*<Route path="/login">*/}
-            {/*    <Login/>*/}
-            {/*</Route>*/}
-        </Switch>
-    </BrowserRouter>
+    return loading ? (<Loader message="Loading, please wait..."/>) : (
+        <BrowserRouter>
+            <Navigation/>
+            <Switch>
+                <GeustRoute path="/" exact>
+                    <Home/>
+                </GeustRoute>
+                <GeustRoute path="/authenticate">
+                    <Authenticate/>
+                </GeustRoute>
+                <SamiProtectedRoute path="/activate">
+                    <Activate/>
+                </SamiProtectedRoute>
+                <ProtectedRoute path="/rooms">
+                    <Rooms/>
+                </ProtectedRoute>
+            </Switch>
+        </BrowserRouter>
+    )
 }
 
 const GeustRoute = ({children, ...rest}) => {
@@ -67,11 +66,11 @@ const SamiProtectedRoute = ({children, ...rest}) => {
                            pathname: '/',
                            state: {from: location}
                        }}/>
-                   ) : (isAuth && !user.activated ? (children) :
-                           <Redirect to={{
-                               pathname: '/rooms',
-                               state: {from: location}
-                           }}/>
+                   ) : isAuth && !user.activated ? (children) : (
+                       <Redirect to={{
+                           pathname: '/rooms',
+                           state: {from: location}
+                       }}/>
                    )
                }}>
         </Route>
@@ -88,16 +87,12 @@ const ProtectedRoute = ({children, ...rest}) => {
                            pathname: '/',
                            state: {from: location}
                        }}/>
-                   ) : (isAuth && !user.activated ? (
+                   ) : isAuth && !user.activated ? (
                            <Redirect to={{
                                pathname: '/activate',
                                state: {from: location}
                            }}/>
-                       ) : (
-                           children
-                       )
-
-                   )
+                       ) : (children);
                }}>
         </Route>
     )
