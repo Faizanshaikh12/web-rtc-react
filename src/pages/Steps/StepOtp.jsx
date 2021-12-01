@@ -13,6 +13,7 @@ export const StepOtp = () => {
     const dispatch = useDispatch();
 
     async function onSubmit() {
+        if(!otp || !phone || !hash) return;
         try {
             const {data} = await verifyOtp({otp, phone, hash});
             dispatch(setAuth(data))

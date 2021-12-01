@@ -5,6 +5,26 @@
     align-items: center;
 }
 
+.navRight {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #0077ff;
+    margin: 0 15px;
+}
+
+.logoutBtn {
+    padding-top: 5px;
+    background: #0077ff;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
 .brandStyle {
     color: #fff;
     text-decoration: none;

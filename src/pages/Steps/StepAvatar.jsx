@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Button} from "../../components/shared/Button/button";
 import {Card} from "../../components/shared/Card/card";
 import {TextInput} from "../../components/shared/TextInput/TextInput";
@@ -14,6 +14,7 @@ export const StepAvatar = ({onNext}) => {
     const {name, avatar} = useSelector((state) => state.activate)
     const [image, setImage] = useState('/images/monkey-avatar.png');
     const [loading, setLoading] = useState(false);
+    const [unMount, setUnMount] = useState(false);
 
     function uploadImage(e) {
         const file = e.target.files[0];
@@ -27,11 +28,14 @@ export const StepAvatar = ({onNext}) => {
     }
 
     async function onSubmit() {
+        if (!name || !avatar) return;
         setLoading(true);
         try {
             const {data} = await activate({name, avatar});
             if (data.auth) {
-                dispatch(setAuth(data));
+                if (!unMount) {
+                    dispatch(setAuth(data));
+                }
             }
             console.log(data);
         } catch (e) {
@@ -40,6 +44,12 @@ export const StepAvatar = ({onNext}) => {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        return () => {
+            setUnMount(true);
+        }
+    }, [])
 
     if (loading) return <Loader message="Activation progress"/>
     return (

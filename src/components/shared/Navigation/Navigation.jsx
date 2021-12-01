@@ -7,10 +7,10 @@ import {useDispatch, useSelector} from "react-redux";
 
 export const Navigation = () => {
     const dispatch = useDispatch();
-const {isAuth} = useSelector((state) => state.auth)
+    const {isAuth, user} = useSelector((state) => state.auth)
+
     async function logoutUser() {
         try {
-            debugger
             const {data} = await logout();
             dispatch(setAuth(data));
         } catch (e) {
@@ -24,7 +24,15 @@ const {isAuth} = useSelector((state) => state.auth)
                 <img src='/images/logo.png' alt='logo'/>
                 <span className='logoText'>Codeshouse</span>
             </Link>
-            {isAuth && <button onClick={logoutUser}>Logout</button>}
+            <div className='navRight'>
+                <h3>{user && user.name}</h3>
+                <Link to='/'>
+                    <img className='avatar' src={user && user.avatar} width='40' height='40' alt='avatar'/>
+                </Link>
+                {isAuth && <button className='logoutBtn' onClick={logoutUser}>
+                    <img src='/images/logout.png' alt='Logout'/>
+                </button>}
+            </div>
         </nav>
     )
 }

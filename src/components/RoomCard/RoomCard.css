@@ -1,0 +1,47 @@
+.roomCard{
+    background: #1d1d1d;
+    padding: 20px;
+    border-radius:10px;
+    cursor: pointer;
+}
+
+.speaker{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.avatars img{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    object-fit: cover;
+    border: 2px solid #20bd5f;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #1d1d1d;
+}
+
+.avatars img:last-child{
+    top: 20px;
+    left: 20px;
+}
+
+.names{
+    margin-left: 100px;
+}
+.names span{
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.count{
+    text-align: right;
+}
+
+.count span{
+    font-weight: bold;
+    margin-right: 5px;
+}

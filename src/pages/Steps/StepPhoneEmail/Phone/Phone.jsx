@@ -13,6 +13,7 @@ export const Phone = ({onNext}) => {
 
     async function onSubmit() {
         // Server Request
+        if(!phoneNumber) return;
         const {data} = await sendOtp({phone: phoneNumber});
         console.log(data)
         dispatch(setOtp({phone: data.phone, hash: data.hash}))
