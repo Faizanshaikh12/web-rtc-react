@@ -24,15 +24,19 @@ export const Navigation = () => {
                 <img src='/images/logo.png' alt='logo'/>
                 <span className='logoText'>Codeshouse</span>
             </Link>
+            {isAuth &&
             <div className='navRight'>
-                <h3>{user && user.name}</h3>
+                <h3>{user?.name}</h3>
                 <Link to='/'>
-                    <img className='avatar' src={user && user.avatar} width='40' height='40' alt='avatar'/>
+                    <img className='avatar'
+                         src={user.avatar ? user.avatar : '/images/monkey-avatar.png'}
+                         width='40' height='40' alt='avatar'/>
                 </Link>
-                {isAuth && <button className='logoutBtn' onClick={logoutUser}>
+                <button className='logoutBtn' onClick={logoutUser}>
                     <img src='/images/logout.png' alt='Logout'/>
-                </button>}
+                </button>
             </div>
+            }
         </nav>
     )
 }

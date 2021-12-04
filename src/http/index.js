@@ -10,12 +10,12 @@ const api = axios.create({
 });
 
 // List of api endpoints
-export const sendOtp = (data) => api.post('api/send-otp', data);
-export const verifyOtp = (data) => api.post('api/verify-otp', data);
-export const activate = (data) => api.post('api/activate', data);
-export const logout = (data) => api.post('api/logout', data);
-
-
+export const sendOtp = (data) => api.post('/api/send-otp', data);
+export const verifyOtp = (data) => api.post('/api/verify-otp', data);
+export const activate = (data) => api.post('/api/activate', data);
+export const roomCreate = (data) => api.post('/api/rooms', data);
+export const logout = () => api.post('/api/logout');
+export const getAllRooms = () => api.get('/api/rooms');
 // Interceptor methods
 api.interceptors.response.use(
     (config) => {

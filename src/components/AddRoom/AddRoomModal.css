@@ -1,0 +1,93 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBody {
+    width: 50%;
+    max-width: 500px;
+    background: #1d1d1d;
+    position: relative;
+    border-radius: 10px;
+}
+
+.modalHeader {
+    padding: 30px;
+    border-bottom: 2px solid #262626;
+}
+
+.roomTypes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.typeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.typeBox.active{
+    background: #262626;
+}
+
+.modalHeading {
+    font-size: 16px;
+    margin: 5px;
+}
+
+.typesHeading {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.modalFooter {
+    padding: 30px;
+    text-align: center;
+}
+
+.modalFooter h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footerBtn {
+    background: #20bd5f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    padding: 7px 10px;
+    border-radius: 20px;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.footerBtn:hover {
+    background: #0f6632;
+}
+
+.footerBtn img {
+    margin-right: 5px;
+}
+
+.closeBtn {
+    position: absolute;
+    right: 3px;
+    top: 8px;
+    background: none;
+}

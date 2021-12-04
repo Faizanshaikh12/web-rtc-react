@@ -1,16 +1,10 @@
 import React from 'react'
 import './Home.css'
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {Card} from "../../components/shared/Card/card";
 import {Button} from "../../components/shared/Button/button";
 
 export const Home = () => {
-    const loginStyle = {
-        color: '#0077ff',
-        fontWeight: 'bold',
-        textDecoration: 'none',
-        marginLeft: '10px'
-    }
 const history = useHistory()
     function startRegister() {
         history.push('/authenticate')

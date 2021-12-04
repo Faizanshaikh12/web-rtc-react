@@ -1,21 +1,21 @@
-.roomCard{
+.roomCard {
     background: #1d1d1d;
     padding: 20px;
-    border-radius:10px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-.speaker{
+.speakers {
     margin-top: 10px;
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.avatars img{
+.avatars img {
     width: 40px;
     height: 40px;
-    border-radius:50%;
+    border-radius: 50%;
     object-fit: cover;
     border: 2px solid #20bd5f;
     position: absolute;
@@ -24,24 +24,34 @@
     background: #1d1d1d;
 }
 
-.avatars img:last-child{
+.avatars img:last-child {
     top: 20px;
     left: 20px;
 }
 
-.names{
+.names {
     margin-left: 100px;
 }
-.names span{
+
+.names span {
     padding-bottom: 5px;
     display: inline-block;
     margin-right: 5px;
 }
-.count{
+
+.count {
     text-align: right;
 }
 
-.count span{
+.count span {
     font-weight: bold;
     margin-right: 5px;
+}
+
+.singleSpeaker .avatars img {
+    position: initial;
+}
+
+.singleSpeaker .names {
+    margin-left: 20px;
 }

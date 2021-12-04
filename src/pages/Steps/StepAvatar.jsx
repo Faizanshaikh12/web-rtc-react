@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Button} from "../../components/shared/Button/button";
 import {Card} from "../../components/shared/Card/card";
-import {TextInput} from "../../components/shared/TextInput/TextInput";
 import {useDispatch, useSelector} from "react-redux";
 import {setAvatar} from "../../store/activateSlice";
 import './Steps.css'

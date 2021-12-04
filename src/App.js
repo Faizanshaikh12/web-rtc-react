@@ -8,6 +8,7 @@ import {Rooms} from "./pages/Rooms/Rooms";
 import {useSelector} from "react-redux";
 import {useLoadingWithRefresh} from "./hooks/useLoadingWithRefresh";
 import {Loader} from "./components/shared/Loader/Loader";
+import Room from "./pages/Room/Room";
 
 // const isAuth = false;
 // const user = {
@@ -32,6 +33,9 @@ function App() {
                 </SamiProtectedRoute>
                 <ProtectedRoute path="/rooms">
                     <Rooms/>
+                </ProtectedRoute>
+                <ProtectedRoute path="/room/:id">
+                    <Room/>
                 </ProtectedRoute>
             </Switch>
         </BrowserRouter>
