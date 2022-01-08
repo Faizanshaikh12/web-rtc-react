@@ -6,7 +6,6 @@ import {useHistory} from "react-router-dom";
 const RoomCard = ({room}) => {
 
     const history = useHistory()
-console.log(room)
     return (
         <div className='roomCard'
              onClick={() => {
