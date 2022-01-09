@@ -5,11 +5,15 @@ import {ACTIONS} from "../actions";
 import freeice from "freeice";
 
 const users = [
-//     {
-//     id: 1, name: 'Rakesh K'
-// }, {
-//     id: 2, name: 'Faizan S'
-// }
+    {
+        id: 1,
+        name: 'Rakesh K',
+        avatar: 'https://www.hollywoodreporter.com/wp-content/uploads/2019/03/avatar-publicity_still-h_2019.jpg?w=1024'
+    }, {
+        id: 2,
+        name: 'Faizan S',
+        avatar: 'https://yt3.ggpht.com/ytc/AKedOLQf5MBcFSDzo2FeZIXSqafCvdRMGjW2C-0j8RpD=s900-c-k-c0x00ffffff-no-rj'
+    }
 ]
 
 export const useWebRTC = (roomId, user) => {
@@ -37,8 +41,8 @@ export const useWebRTC = (roomId, user) => {
         const startCapture = async () => {
             localMediaStream.current =
                 await navigator.mediaDevices.getUserMedia({
-                audio: true
-            })
+                    audio: true
+                })
         }
         startCapture().then(() => {
             addNewClient(user, () => {
